@@ -1,5 +1,5 @@
 import {products} from "/javascript-amazon-project-main/data/products.js";
-import {cart} from "/javascript-amazon-project-main/data/cart.js";
+import {cart, addToCart} from "/javascript-amazon-project-main/data/cart.js";
 
 
 let productsHTML='';
@@ -58,36 +58,19 @@ products.forEach((product) =>{
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+function incrementCartCount(){
+  let cartCount=0;  
+  cart.forEach((cartItem)=>{
+    cartCount += cartItem.quantity;
+  });
+  document.querySelector(".js-cart-quantity").innerHTML = cartCount;
+}
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) =>{
     button.addEventListener('click', () => {
       const productID = button.dataset.productId;
-      
-      let matchingItem;
-      
-      cart.forEach((item) => {
-        if(productID === item.productID){
-          matchingItem = item;
-        }
-      });
-
-      if(matchingItem){
-        matchingItem.quantity += 1;
-      } else{
-        cart.push({
-          productID: productID,
-          quantity: 1
-        });
-      }
-      console.log(cart);
-    
-      let cartCount=0;  
-    cart.forEach((item)=>{
-        cartCount += item.quantity;
-    });
-    document.querySelector(".js-cart-quantity").innerHTML = cartCount;
-    
+      addToCart(productID);
+      incrementCartCount();
     })
     
 })
-
