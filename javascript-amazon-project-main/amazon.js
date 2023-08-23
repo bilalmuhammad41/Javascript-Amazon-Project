@@ -1,5 +1,6 @@
 import {products} from "/javascript-amazon-project-main/data/products.js";
 import {cart, addToCart} from "/javascript-amazon-project-main/data/cart.js";
+import { formatCurrency } from "/javascript-amazon-project-main/Utils/money.js";
 
 
 let productsHTML='';
@@ -26,7 +27,7 @@ products.forEach((product) =>{
             <div class="product-rating-count link-primary">${product.rating.count}</div>
           </div>
 
-          <div class="product-price">${(product.priceCents/100).toFixed(2)}</div>
+          <div class="product-price">${formatCurrency(product.priceCents)}</div>
 
           <div class="product-quantity-container">
             <select>
