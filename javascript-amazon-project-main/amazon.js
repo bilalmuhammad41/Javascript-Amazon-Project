@@ -58,7 +58,7 @@ products.forEach((product) =>{
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-function incrementCartCount(){
+export function incrementCartCount(){
   let cartCount=0;  
   cart.forEach((cartItem)=>{
     cartCount += cartItem.quantity;
