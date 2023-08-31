@@ -88,10 +88,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 4. Push to the branch: `git push origin feature-add-new-feature`
 5. Open a pull request, explaining the changes you've made.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
 
 *Note: This project is for educational purposes and is not affiliated with or endorsed by Amazon.com.*
